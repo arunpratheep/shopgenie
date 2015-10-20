@@ -20,6 +20,8 @@ public class AdminDao extends GenericDao<Admin, String> {
 		Query query =startSession().createQuery("From Admin where name=?");
 		query.setParameter(0, name);
 		List results = query.list();
+		if(results.isEmpty())
+			return null;
 		return (Admin) results.get(0);
 	}
 }
