@@ -207,4 +207,16 @@ public class GenericDao<T, ID extends Serializable> implements GenericDaoInterfa
 		session.saveOrUpdate(o);
 		close();
 	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
+	}
+	public Session startSession(){
+		 beginTransaction();
+		 return session;
+	}
 }

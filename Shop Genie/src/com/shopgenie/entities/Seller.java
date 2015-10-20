@@ -1,5 +1,6 @@
 package com.shopgenie.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,9 @@ public class Seller {
 	@SequenceGenerator(name = "seq_seller", sequenceName = "seq_seller", allocationSize    = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_seller")
 	private Long sid;
+	@Column(nullable=false,unique=true)
 	private String sname;
+	@Column(nullable=false)
 	private String password;
 	
 	public Long getSid() {

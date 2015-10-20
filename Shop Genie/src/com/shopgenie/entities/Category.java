@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class Category {
 	@SequenceGenerator(name = "seq_category", sequenceName = "seq_category", allocationSize    = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_category")
 	Long categoryId;
+	@Column(nullable=false,unique=true)
 	String categoryName;
 	
 	@OneToMany(mappedBy="parentCategory",cascade=CascadeType.ALL)
