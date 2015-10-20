@@ -161,7 +161,6 @@ public class GenericDao<T, ID extends Serializable> implements GenericDaoInterfa
 			System.out.println("No record");
 			session.clear();
 			return false;
-			// TODO: handle exception
 		}
 		finally
 		{

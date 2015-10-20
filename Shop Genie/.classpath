@@ -59,7 +59,7 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/arunp/AppData/Roaming/Skype/My Skype Received Files/hibernate-core-5.0.1.Final(1).jar">
+	<classpathentry kind="lib" path="C:/Users/arunp/AppData/Roaming/Skype/My Skype Received Files/hibernate-core-5.0.1.Final(1).jar" sourcepath="C:/Users/arunp/.m2/repository/org/hibernate/hibernate-core/5.0.1.Final/hibernate-core-5.0.1.Final-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
