@@ -9,8 +9,8 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Admin {
 	@Id
-	@SequenceGenerator(name = "admin_seq", sequenceName = "admin_seq", allocationSize    = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_seq")
+	@SequenceGenerator(name = "seq_admin", sequenceName = "seq_admin", allocationSize    = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_admin")
 	private Integer adminId;
 	private String name;
 	private String password;

@@ -11,8 +11,8 @@ import javax.persistence.SequenceGenerator;
 public class Product {
 	
 	@Id
-	@SequenceGenerator(name = "product_seq", sequenceName = "product_seq", allocationSize    = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
+	@SequenceGenerator(name = "seq_product", sequenceName = "seq_product", allocationSize    = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_product")
 	Long productId;
 	Long productName;
 	

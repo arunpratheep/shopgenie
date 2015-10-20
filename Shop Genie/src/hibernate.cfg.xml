@@ -22,5 +22,8 @@
 		<mapping class="com.shopgenie.entities.Admin" />
 		<mapping class="com.shopgenie.entities.User" />
 		<mapping class="com.shopgenie.entities.Seller" />
+		<mapping class="com.shopgenie.entities.Product" />
+		<mapping class="com.shopgenie.entities.Category" />
+		<mapping class="com.shopgenie.entities.Address" />
 	</session-factory>
 </hibernate-configuration>

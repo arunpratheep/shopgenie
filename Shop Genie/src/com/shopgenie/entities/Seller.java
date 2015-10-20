@@ -10,8 +10,8 @@ import javax.persistence.SequenceGenerator;
 public class Seller {
 
 	@Id
-	@SequenceGenerator(name = "seller_seq", sequenceName = "seller_seq", allocationSize    = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seller_seq")
+	@SequenceGenerator(name = "seq_seller", sequenceName = "seq_seller", allocationSize    = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_seller")
 	private Long sid;
 	private String sname;
 	private String password;

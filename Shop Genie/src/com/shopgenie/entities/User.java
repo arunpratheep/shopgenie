@@ -9,11 +9,14 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class User {
 	@Id
-	@SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize    = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+	@SequenceGenerator(name = "seq_user", sequenceName = "seq_user", allocationSize    = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
 	private Long uid;
 	private String uname;
 	private String password;
+	
+	
+	//private Address address;
 	
 	public User() {
 		
