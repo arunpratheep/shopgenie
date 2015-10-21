@@ -1,5 +1,8 @@
 package com.shopgenie.entities;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -27,6 +31,9 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name="categoryId",nullable=false)
 	Category category;
+	
+	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
+	private Collection<Stock> stock = new ArrayList<Stock>();
 	
 	public Product(String productName) {
 		super();
@@ -58,6 +65,12 @@ public class Product {
 	public void setVerified(Boolean verified)
 	{
 	    this.verified = verified;
+	}
+	public Collection<Stock> getStock() {
+		return stock;
+	}
+	public void setStock(Collection<Stock> stock) {
+		this.stock = stock;
 	}
 
 }

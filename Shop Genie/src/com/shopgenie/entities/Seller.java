@@ -1,10 +1,15 @@
 package com.shopgenie.entities;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -18,6 +23,11 @@ public class Seller {
 	private String sname;
 	@Column(nullable=false)
 	private String password;
+	
+	private Boolean verified=false;
+	
+	@OneToMany(mappedBy="seller",cascade=CascadeType.ALL)
+	private Collection<Stock> stock = new ArrayList<Stock>();
 	
 	public Long getSid() {
 		return sid;
@@ -36,5 +46,17 @@ public class Seller {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Collection<Stock> getStock() {
+		return stock;
+	}
+	public void setStock(Collection<Stock> stock) {
+		this.stock = stock;
+	}
+	public Boolean getVerified() {
+		return verified;
+	}
+	public void setVerified(Boolean verified) {
+		this.verified = verified;
 	}
 }
