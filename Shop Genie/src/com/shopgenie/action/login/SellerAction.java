@@ -5,11 +5,11 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.shopgenie.dao.AdminDao;
-import com.shopgenie.entities.Admin;
+import com.shopgenie.dao.SellerDao;
+import com.shopgenie.entities.Seller;
 
-@Results({@Result(name="success",location="/admin/AdminHome.jsp"),@Result(name="login",location="/admin/login.jsp")})
-public class AdminAction extends ActionSupport
+@Results({@Result(name="success",location="/seller/SellerHome.jsp"),@Result(name="login",location="/seller/login.jsp")})
+public class SellerAction extends ActionSupport
 {
     /**
      * 
@@ -17,19 +17,19 @@ public class AdminAction extends ActionSupport
     private static final long serialVersionUID = 1L;
     private String name;
     private String password;
-    Admin admin=new Admin();
-    @Action(value="/Adminlogin")
+    Seller seller=new Seller();
+    @Action(value="/Sellerlogin")
     public String execute()
     {
-	AdminDao adminDao=new AdminDao();
-	if(adminDao.getByName(name)==null)
+	SellerDao sellerDao=new SellerDao();
+	if(sellerDao.getByName(name)==null)
 	{
 	    return LOGIN;
 	}
 	else
 	{
-	    admin=adminDao.getByName(name);
-	    if(admin.getPassword().equals(password)){
+	    seller=sellerDao.getByName(name);
+	    if(seller.getPassword().equals(password)){
 		return SUCCESS;
 	    }
 	    return LOGIN;
