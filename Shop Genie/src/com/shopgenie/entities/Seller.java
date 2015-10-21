@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,9 @@ public class Seller {
 	private String sname;
 	@Column(nullable=false)
 	private String password;
-	
+	private String mobile;
+	@Embedded
+	private Address address;
 	private Boolean verified=false;
 	
 	@OneToMany(mappedBy="seller",cascade=CascadeType.ALL)
@@ -58,5 +61,17 @@ public class Seller {
 	}
 	public void setVerified(Boolean verified) {
 		this.verified = verified;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

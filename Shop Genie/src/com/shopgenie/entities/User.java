@@ -1,6 +1,7 @@
 package com.shopgenie.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,8 +19,9 @@ public class User {
 	@Column(nullable=false)
 	private String password;
 	
+	@Embedded
+	private Address address;
 	
-	//private Address address;
 	
 	public User() {
 		
@@ -50,5 +52,11 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

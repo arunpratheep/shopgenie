@@ -1,31 +1,27 @@
 package com.shopgenie.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public class Address {
+	
+	public Address(String email, String addressLine1, String addressLine2, String district, String state,
+			String pincode) {
+		super();
+		this.email = email;
+		this.addressLine1 = addressLine1;
+		this.addressLine2 = addressLine2;
+		District = district;
+		State = state;
+		this.pincode = pincode;
+	}
 
-	@Id
-	@SequenceGenerator(name = "seq_address", sequenceName = "seq_address", allocationSize    = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_address")
-	private Integer id;
+	private String email;
 	private String addressLine1;
 	private String addressLine2;
 	private String District;
 	private String State;
 	private String pincode;
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getAddressLine1() {
 		return addressLine1;
@@ -69,6 +65,14 @@ public class Address {
 
 	public Address() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
