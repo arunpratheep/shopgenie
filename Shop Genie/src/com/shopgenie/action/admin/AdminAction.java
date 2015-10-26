@@ -1,14 +1,16 @@
-package com.shopgenie.action.login;
+package com.shopgenie.action.admin;
+
+import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.shopgenie.dao.AdminDao;
-import com.shopgenie.entities.Admin;
+import com.shopgenie.entities.Seller;
 
-@Results({@Result(name="success",location="/admin/AdminHome.jsp"),@Result(name="login",location="/admin/login.jsp")})
+@Results({ @Result(name = "success", location = "/admin/adminhome.jsp"),
+	@Result(name = "login", location = "/admin/login.jsp") })
 public class AdminAction extends ActionSupport
 {
     /**
@@ -17,38 +19,41 @@ public class AdminAction extends ActionSupport
     private static final long serialVersionUID = 1L;
     private String name;
     private String password;
-    Admin admin=new Admin();
-    @Action(value="/Adminlogin")
+    AdminLogic adminLogic = new AdminLogic();
+
+    @Action(value = "/Adminlogin")
     public String execute()
     {
-	AdminDao adminDao=new AdminDao();
-	if(adminDao.getByName(name)==null)
+	if (adminLogic.loginValidate(name, password))
 	{
-	    return LOGIN;
+	    return SUCCESS;
 	}
-	else
-	{
-	    admin=adminDao.getByName(name);
-	    if(admin.getPassword().equals(password)){
-		return SUCCESS;
-	    }
-	    return LOGIN;
-	}
+	return LOGIN;
     }
+
+    @Action(value = "/sellerVerify")
+    public void verifySeller()
+    {
+	List<Seller> unverifiedSellers=adminLogic.verifyUser();
+    }
+
     public String getName()
     {
-        return name;
+	return name;
     }
+
     public void setName(String name)
     {
-        this.name = name;
+	this.name = name;
     }
+
     public String getPassword()
     {
-        return password;
+	return password;
     }
+
     public void setPassword(String password)
     {
-        this.password = password;
+	this.password = password;
     }
 }
