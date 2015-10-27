@@ -23,4 +23,14 @@ public class SellerDao extends GenericDao<Seller, Long> {
 			return null;
 		return (Seller) results.get(0);
 	}
+	public List<Seller> getUnverified()
+	{
+		Query query =startSession().createQuery("From Seller where verified=?");
+		query.setParameter(0, false);
+		List<Seller> results = query.list();
+		if(results.isEmpty())
+			return null;
+		return results;
+	}
+	
 }
