@@ -77,7 +77,7 @@
 								%>
 							</option>
 							<%
-							    }
+									}
 							%>
 					</select></td>
 				</tr>
